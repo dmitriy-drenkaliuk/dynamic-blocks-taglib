@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<g:form controller="dynamic" action="submitAction" style="margin: 100px;">
+<g:form controller="dynamicElements" action="submitAction" style="margin: 100px;">
 	<p>Enter a full name and birthday:</p>
 	<dynamic_elements:add itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
 												onComplete="makeDatePicker" limitReachedMsg="Limit is exceeded!" template="/partials/elem"/>
@@ -42,7 +42,7 @@
 	</dynamic_elements:add>
 
 	<br/><br/>
-	
+
 	<g:submitButton name="submit" value="Submit" style="display: block;"/>
 </g:form>
 </body>

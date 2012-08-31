@@ -30,8 +30,8 @@ class DynamicElementsTagLib {
         def min
         def max
         try {
-            min = attrs.min as int
-            max = attrs.max as int
+            min = attrs.min ? attrs.min as int : null
+            max = attrs.max ? attrs.max as int : null
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException("[min] and [max] attributes must be integer numbers!")
         }
