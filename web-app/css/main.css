@@ -1,0 +1,7 @@
+input {
+    margin: 2px;
+}
+
+input[type=button], input[type=submit] {
+    width: 120px;
+}
