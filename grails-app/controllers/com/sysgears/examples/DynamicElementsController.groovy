@@ -2,17 +2,18 @@ package com.sysgears.examples
 
 class DynamicElementsController {
 
-    /**
-     * Renders a page with an ability to add HTML elements dynamically.
-     */
-    def index = {
-    }
+	/**
+	 * Renders a page with an ability to add HTML elements dynamically.
+	 */
+	def index() {
+	}
 
-    /**
-     * Is performed when the form with dynamically added elements is submitted.
-     */
-    def submitAction = {
-        println(params as String)
-        redirect(action: 'index')
-    }
+	/**
+	 * Prints parameters taken from a form with dynamically added items and redirects to the index page.
+	 */
+	def submitAction() {
+		println(params as String)
+
+		redirect(action: 'index')
+	}
 }

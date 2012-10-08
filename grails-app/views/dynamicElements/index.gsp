@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta name="layout" content="main"/>
-	<title>Test page</title>
+	<title>'dynamic_elements' TagLib examples</title>
 	<g:javascript>
 		function check(elem) {
 			$(elem).prev().val($(elem).attr('checked') ? 'on' : '');
@@ -16,14 +16,17 @@
 
 <body>
 <g:form controller="dynamicElements" action="submitAction" style="margin: 100px;">
-	<p>Enter a full name and birthday:</p>
+	<p>'dynamic_elements' TagLib and function call example:</p>
+	<table cellpadding="0" cellspacing="0" id="usersHeadTable">
+		<tr><td>First name</td><td>Last name</td><td>Birthday</td></tr>
+	</table>
 	<dynamic_elements:add itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
 												onComplete="makeDatePicker" limitReachedMsg="Limit is exceeded!" template="/partials/elem"/>
-	<input id="addFullName" type="button" value="Add another name"/>
+	<input id="addFullName" type="button" value="Add user"/>
 
 	<br/><br/>
 
-	<p>Checkboxes testing:</p>
+	<p>'dynamic_elements' TagLib and checkboxes example:</p>
 	<dynamic_elements:add itemId="skills" min="1" max="5">
 		<g:textField name="skill"/>
 		<g:checkBox name="isVerified" onchange="check(this);"/>
@@ -31,7 +34,7 @@
 
 	<br/><br/>
 
-	<p>Radio inputs testing:</p>
+	<p>'dynamic_elements' TagLib and radio inputs example:</p>
 	<dynamic_elements:add itemId="radioInputsTest" min="4">
 		<span>
 			<label>Option1</label>

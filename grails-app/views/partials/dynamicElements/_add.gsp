@@ -4,9 +4,9 @@
 
 <script type="text/javascript">
 	$(function() {
-		// connect the add.js file if there is a need
-		if (!window['addItemDynamically']) {
-			$('<script type="text/javascript">').attr('src', '<g:resource dir="js" file="dynamicElements.js"/>').appendTo('head');
+		// connect the add.js file if it's needed
+		if (!window['addItem']) {
+			$('<script type="text/javascript">').attr('src', "${g.resource(dir: 'js', file: 'dynamicElements.js')}").appendTo('head');
 		}
 
 		// get the "Add" button
@@ -14,10 +14,10 @@
 
 		// bind event handler to the "click" JS event for the "Add" button
 		addButton.click(function() {
-			addItemDynamically('${id}', '${elem}', ${min}, ${max}, '${onComplete}', '${limitReachedMsg}', '${removeBtnLabel}');
+			addItem('${id}', '${elem}', ${min}, ${max}, '${onComplete}', '${limitReachedMsg}', '${removeBtnLabel}');
 		});
 
-		// add first elements
+		// add the first elements
 		for (var i = 0; i < ${min}; i++) {
 			addButton.click();
 		}

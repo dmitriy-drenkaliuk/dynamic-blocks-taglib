@@ -3,5 +3,14 @@ input {
 }
 
 input[type=button], input[type=submit] {
-    width: 120px;
+    width: 140px;
+}
+
+#usersHeadTable {
+	margin-left: 8px;
+	font-size: 10pt;
+}
+
+#usersHeadTable td {
+	width: 160px;
 }

@@ -1,7 +1,7 @@
 /*
- * Dynamically adds new element on a form.
+ * Adds new element to the form.
  */
-function addItemDynamically(id, elem, min, max, onComplete, limitMessage, removeBtnLabel) {
+function addItem(id, elem, min, max, onComplete, limitMessage, removeBtnLabel) {
 	if (!max || $('[id^=' + id + ']').length < max) {
 		var countElem = $('#count_' + id);
 		var num = parseInt(countElem.html()) + 1;
@@ -10,10 +10,10 @@ function addItemDynamically(id, elem, min, max, onComplete, limitMessage, remove
 		var removeButton = $('<input type="button"/>').appendTo(newElem);
 		removeButton.attr({'id' : 'remove_' + id, 'value' : removeBtnLabel ? removeBtnLabel : 'Remove', 'disabled' : 'disabled'});
 		removeButton.click(function() {
-			removeItemDynamically(id, num, min);
+			removeItem(id, num, min);
 		});
-		changeIds(newElem, num);
-		changeRadioNames(newElem, num);
+		indexItem(newElem, num);
+		indexRadioGroup(newElem, num);
 		$('#parent_' + id).append(newElem);
 		if ($('[id^=' + id + ']').length > min) {
 			$('[id^=remove_' + id + ']').removeAttr('disabled');
@@ -27,9 +27,9 @@ function addItemDynamically(id, elem, min, max, onComplete, limitMessage, remove
 }
 
 /*
- * Dynamically removes element from a page.
+ * Removes element from a page.
  */
-function removeItemDynamically(id, num, min) {
+function removeItem(id, num, min) {
 	$('#' + id + num).remove();
 	if ($('[id^=' + id + ']').length <= min) {
 		$('[id^=remove_' + id + ']').attr('disabled', 'disabled');
@@ -39,20 +39,20 @@ function removeItemDynamically(id, num, min) {
 /*
  * Changes IDs for each element's child by adding index number to it.
  */
-function changeIds(elem, num) {
+function indexItem(elem, num) {
 	elem.children().each(function() {
 		var nodeId = $(this).attr('id');
 		if (nodeId) {
 			$(this).attr('id', nodeId + num);
 		}
-		changeIds($(this), num);
+		indexItem($(this), num);
 	});
 }
 
 /*
  * Changes names of radio inputs by adding index number to it.
  */
-function changeRadioNames(elem, num) {
+function indexRadioGroup(elem, num) {
 	elem.find('input[type=radio]').each(function() {
 		$(this).attr('name', $(this).attr('name') + num);
 	});
