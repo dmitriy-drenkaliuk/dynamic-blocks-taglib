@@ -7,7 +7,7 @@ class UrlMappings {
 			}
 		}
 
-		"/"(view:"/index")
+		"/"(controller: 'dynamicElements', view: 'index')
 		"500"(view:'/error')
 	}
 }
