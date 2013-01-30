@@ -40,6 +40,7 @@ class DynamicElementsTagLib {
 		// prepare template for new items
 		def elem = attrs.template ? render(template: attrs.template, model: attrs.model) : body()
 		elem = elem.replaceAll('\n', '') // make template single-lined in order to pass it as a parameter to the JS function in the GSP template
+		elem = elem.encodeAsJavaScript() // make the template able to pass into a JS function
 
 		// render GSP template
 		out << render(template: "/partials/dynamicElements/add", model: [
