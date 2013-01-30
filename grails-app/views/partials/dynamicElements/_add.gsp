@@ -4,9 +4,9 @@
 
 <script type="text/javascript">
 	$(function() {
-		// connect the add.js file if it's needed
+		// import the add.js file if it's needed
 		if (!window['addItem']) {
-			$('<script type="text/javascript">').attr('src', "${g.resource(dir: 'js', file: 'dynamicElements.js')}").appendTo('head');
+			$('<script type="text/javascript">').attr('src', "${resource(dir: 'js', file: 'dynamicElements.js')}").appendTo('head');
 		}
 
 		// get the "Add" button
