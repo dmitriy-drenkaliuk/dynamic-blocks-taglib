@@ -1,9 +1,9 @@
 input {
-    margin: 2px;
+	margin: 2px;
 }
 
 input[type=button], input[type=submit] {
-    width: 140px;
+	width: 140px;
 }
 
 #usersHeadTable {
