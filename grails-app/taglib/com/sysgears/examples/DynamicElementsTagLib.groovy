@@ -8,25 +8,25 @@ class DynamicElementsTagLib {
 	static namespace = "dynamic_elements"
 
 	/**
-	 * Tag for dynamic adding of block of HTML elements on the page.
-	 * Renders GSP template with additional elements, passes necessary parameters to this template.
+	 * Tag that allows to add identical HTML blocks to the page dynamically.
+	 * Renders GSP template that contains additional HTML elements and necessary JavaScript functions.
 	 *
-	 * @attr itemId          REQUIRED ID prefix for each copy of the template (the index number of the copy is added to the end of ID)
-	 * @attr template        OPTIONAL The name of a GSP template that contains a HTML code for dynamic adding (the tag's body will be rendered if this parameter is missing)
-	 * @attr model           OPTIONAL The model to apply the GSP template against
-	 * @attr addBtnId        OPTIONAL ID of the 'Add' button; the page must contain an element with this ID to provide custom 'Add' button; if the parameter is not specified, the default 'Add' button will be rendered
-	 * @attr removeBtnLabel  OPTIONAL The label for the button that removes one item ('Remove' by default)
-	 * @attr min             OPTIONAL The number of items that are on the page by default; minimum number of items
-	 * @attr max             OPTIONAL The maximum number of items that can be added on the page
-	 * @attr limitReachedMsg OPTIONAL The message that will be displayed when the maximum limit of items is reached
-	 * @attr onComplete      OPTIONAL The name of a JS function that must be executed after a new item is added (this function must receive the index number of a newly added item)
+	 * @attr itemId          REQUIRED Prefix for ID of each block (a block ID consists of the itemId + index number of the block)
+	 * @attr template        OPTIONAL Name of a GSP template that contains HTML code for every dynamic block (if missing, the tag's body will be used instead)
+	 * @attr model           OPTIONAL Model to apply the GSP template against
+	 * @attr addBtnId        OPTIONAL ID of the 'Add' button; the page must contain an element with this ID to provide custom 'Add' button; if not specified, the default 'Add' button will be rendered
+	 * @attr removeBtnLabel  OPTIONAL Label of the button that is rendered with every item and allows to remove it (defaults to 'Remove')
+	 * @attr min             OPTIONAL Number of items that are on the page by default; minimum number of items
+	 * @attr max             OPTIONAL Maximum number of items that can be added to the page
+	 * @attr limitReachedMsg OPTIONAL Message displayed when the maximum limit of items is reached
+	 * @attr onComplete      OPTIONAL Name of a JS function that will be executed after adding of new block (must accept index number of a newly added item)
 	 */
 	def add = { attrs, body ->
-		// check the existence of the itemId attribute
+		// check if the itemId attribute is passed to the tag
 		def id = attrs.itemId
 		if (!id) throw new IllegalArgumentException("[id] attribute must be specified to for <dynamic_elements:add>!")
 
-		// verify the min and the max attributes
+		// validate the min and max attributes
 		def min
 		def max
 		try {
@@ -39,10 +39,10 @@ class DynamicElementsTagLib {
 
 		// prepare template for new items
 		def elem = attrs.template ? render(template: attrs.template, model: attrs.model) : body()
-		elem = elem.replaceAll('\n', '') // make template single-lined in order to pass it as a parameter to the JS function in the GSP template
+		elem = elem.replaceAll('\n', '') // make the template single-lined in order to pass it as a parameter to JS function that adds new items
 		elem = elem.encodeAsJavaScript() // make the template able to pass into a JS function
 
-		// render GSP template
+		// render GSP template with auxiliary HTML and JS code
 		out << render(template: "/partials/dynamicElements/add", model: [
 				id: id,
 				elem: elem,

@@ -15,13 +15,14 @@
 </head>
 
 <body>
+
 <g:form controller="dynamicElements" action="submitAction" style="margin: 100px;">
 	<p>'dynamic_elements' TagLib and function call example:</p>
 	<table cellpadding="0" cellspacing="0" id="usersHeadTable">
 		<tr><td>First name</td><td>Last name</td><td>Birthday</td></tr>
 	</table>
 	<dynamic_elements:add itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
-												onComplete="makeDatePicker" limitReachedMsg="Limit is exceeded!" template="/partials/elem"/>
+						  onComplete="makeDatePicker" limitReachedMsg="Limit is exceeded!" template="/partials/elem"/>
 	<input id="addFullName" type="button" value="Add user"/>
 
 	<br/><br/>
@@ -48,5 +49,6 @@
 
 	<g:submitButton name="submit" value="Submit" style="display: block;"/>
 </g:form>
+
 </body>
 </html>

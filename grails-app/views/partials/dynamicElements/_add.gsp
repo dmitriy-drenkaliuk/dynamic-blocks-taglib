@@ -1,15 +1,17 @@
 <div id="count_${id}" style="display: none;">0</div>
 <div id="parent_${id}"></div>
-<g:if test="${!addBtnId}"><input id="add_${id}" type="button" value="Add"/></g:if>
+<g:if test="${!addBtnId}">
+	<input id="add_${id}" type="button" value="Add"/>
+</g:if>
 
-<script type="text/javascript">
+<r:script>
 	function initializeTag(addButton, id, elem, min, max, onComplete, limitReachedMsg, removeBtnLabel) {
-		// bind event handler to the "click" JS event for the "Add" button
+		// bind event handler to the "click" JS event of the "Add" button
 		addButton.click(function() {
 			addItem(id, elem, min, max, onComplete, limitReachedMsg, removeBtnLabel);
 		});
 
-		// add the first elements
+		// add the initial number of items
 		for (var i = 0; i < min; i++) {
 			addButton.click();
 		}
@@ -19,7 +21,7 @@
 		// get the "Add" button
 		var addButton = ${addBtnId ? "\$('#$addBtnId')" : "\$('#add_$id')"};
 
-		// import the dynamicElements.js file if it's needed
+		// import the dynamicElements.js file if it was not imported yet
 		if (!window['addItem']) {
 			$.getScript("${resource(dir: 'js', file: 'dynamicElements.js')}", function() {
 				initializeTag(addButton, '${id}', '${elem}', ${min}, ${max}, '${onComplete}', '${limitReachedMsg}', '${removeBtnLabel}');
@@ -28,4 +30,4 @@
 			initializeTag(addButton, '${id}', '${elem}', ${min}, ${max}, '${onComplete}', '${limitReachedMsg}', '${removeBtnLabel}');
 		}
 	});
-</script>
+</r:script>

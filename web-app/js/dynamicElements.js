@@ -1,43 +1,43 @@
 /*
- * Adds new element to the form.
+ * Adds new item.
  */
 function addItem(id, elem, min, max, onComplete, limitMessage, removeBtnLabel) {
-	// check the maximum limit of elements
+	// check if we have reached maximum number of elements
 	if (!max || $('[id^=' + id + ']').length < max) {
-		// find an ID counter and increment it
+		// increment item counter
 		var countElem = $('#count_' + id);
 		var num = parseInt(countElem.html()) + 1;
 		countElem.html(num);
-		// create new element and add index number to it
+		// create new item and add index number to it
 		var newElem = $('<div></div>').html(elem).attr({'id' : id + num}).css('margin', '5px');
 		// create the "Remove" button
 		var removeButton = $('<input type="button"/>').appendTo(newElem);
 		removeButton.attr({'id' : 'remove_' + id, 'value' : removeBtnLabel ? removeBtnLabel : 'Remove', 'disabled' : 'disabled'});
-		// bind handler to the 'click' JS event for the "Remove" button
+		// bind handler to the 'click' JS event of the "Remove" button
 		removeButton.click(function() {
 			removeItem(id, num, min);
 		});
-		// change IDs for new element’s children
+		// change IDs of all elements inside new item
 		indexItem(newElem, num);
 		indexRadioGroup(newElem, num);
-		// append new element to the parent
+		// append new item to the parent element
 		$('#parent_' + id).append(newElem);
-		// enable "Remove" buttons if there are greater than minimum number of elements on the page
+		// enable "Remove" buttons if there are more than minimum number of elements on the page
 		if ($('[id^=' + id + ']').length > min) {
 			$('[id^=remove_' + id + ']').removeAttr('disabled');
 		}
-		// execute onComplete JS function if it exists
+		// execute the 'onComplete' JS function if it exists
 		if (window[onComplete] instanceof Function) {
 			window[onComplete](num);
 		}
 	} else {
-		// show a message if maximum limit is reached
+		// display a message if the maximum limit is reached
 		alert(limitMessage ? limitMessage : 'You cannot add more elements.');
 	}
 }
 
 /*
- * Removes element from a page.
+ * Removes an item.
  */
 function removeItem(id, num, min) {
 	$('#' + id + num).remove();
@@ -47,7 +47,7 @@ function removeItem(id, num, min) {
 }
 
 /*
- * Changes IDs for each element's child by adding index number to it.
+ * Changes ID of every item's child by adding index number to it.
  */
 function indexItem(elem, num) {
 	elem.children().each(function() {
