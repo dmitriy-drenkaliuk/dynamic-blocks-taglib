@@ -14,23 +14,23 @@ This is a project sample that demonstrates Grails tag library for dynamic placin
 * set the minimum and maximum number of blocks;
 * use separate GSP template as a HTML block.
 
-The tag library is described in details in this article: http://sysgears.com/articles/dynamically-adding-html-blocks-using-taglib/.
+The tag library is described in detail in this article: http://sysgears.com/articles/dynamically-add-and-remove-html-blocks-with-grails-tag-library-and-jquery/.
 
 Tags description
 ================
 
-The tag library provides single 'add' tag. The tag places user defined HTML template with the 'Add' button to the page. A click on the 'Add' button adds another copy of the HTML template to the page. Each copy has its own 'Remove' button. You can pass the following parameters to the tag in order to set up its behavior:
+The tag library provides a single 'block' tag and can be used when you want to give user an option to dynamically add extra inputs for additional information. You can pass the following parameters to the tag in order to set up its behavior:
 
-* itemId - ID prefix for each copy of the template (index number of the copy is added to the end of ID);
+* itemId - the prefix for the item id (every item id consists of the prefix and the index number)
 
-* template - name of a GSP template that contains a HTML block for dynamic adding (the tag's body will be rendered if this parameter is missing);
-* model - a model to apply the GSP template against;
-* addBtnId - ID of the 'Add' button; the page must contain an element with this ID to provide custom 'Add' button; if the parameter is not specified, the default 'Add' button will be rendered;
-* removeBtnLabel - label for the button that removes an item ('Remove' by default);
-* min - number of items that are on the page by default; minimum number of items;
-* max - maximum number of items that can be added to the page;
-* limitReachedMsg - message that will be displayed when the maximum limit of items is reached;
-* onComplete - name of a JS function that must be executed after new item is added (this function must receive index number of a newly added item).
+* template - the name of a GSP template that contains HTML code for every item (if missing, the tag's body will be used)
+* model - the model passed to the GSP template
+* addBtnId - The id of the 'add' button, the page must contain an element with this id to provide custom 'add' button; if isn't specified, the default 'add' button will be rendered
+* removeBtnLabel - the label of the 'remove' button that is rendered for each item (defaults to 'Remove')
+* min - the minimum number of items (the number of items that are rendered by default)
+* max - the maximum number of items that can be added to the page
+* limitReachedMsg - the message displayed when the limit is reached
+* onComplete - the name of a JS function that will be executed right after a new item is added (must accept the item index number)
 
 The only required parameter is *itemId*, all other parameters are optional.
 
