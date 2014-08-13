@@ -1,6 +1,6 @@
 package com.sysgears.examples
 
-class DynamicElementsController {
+class DynamicBlocksController {
 
 	/**
 	 * Renders a page with an ability to add HTML elements dynamically.

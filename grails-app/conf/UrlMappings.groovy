@@ -7,7 +7,7 @@ class UrlMappings {
 			}
 		}
 
-		"/"(controller: 'dynamicElements', view: 'index')
+		"/"(controller: 'dynamicBlocks', view: 'index')
 		"500"(view:'/error')
 	}
 }

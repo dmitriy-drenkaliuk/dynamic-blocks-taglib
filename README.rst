@@ -1,5 +1,5 @@
-Project demonstrates how to use the 'dynamic_elements' Grails tag library described in `this article <http://sysgears.com/articles/dynamically-adding-html-blocks-using-taglib/>`_
-##################################################################################################################################################################################
+Project demonstrates how to use the Grails tag library described in `this article <http://sysgears.com/articles/dynamically-add-and-remove-html-blocks-with-grails-tag-library-and-jquery/>`_
+#############################################################################################################################################################################################
 
 .. contents::
    :local:
@@ -41,8 +41,8 @@ How to use the tag library in a Grails project
 
  * DynamicElementsTagLib.groovy - to the *<project_root>/grails-app/<package_name>/taglib* directory
 
- * _add.gsp - to the *<project_root>/grails-app/views/partials/dynamicElements* directory
- * dynamicElements.js - to the *<project_root>/web-app/js* directory
+ * _add.gsp - to the *<project_root>/grails-app/views/partials/dynamicBlocks* directory
+ * dynamicBlocks.js - to the *<project_root>/web-app/js* directory
 
 2) Add JQuery library to your GSP page or layout:
 
@@ -50,19 +50,19 @@ How to use the tag library in a Grails project
 
     <g:javascript src="jquery/jquery-1.8.2.min.js"/>
 
-3) Add the _dynamic_elements:add_ tag to your GSP page, specify HTML template and pass necessary parameters to the tag:
+3) Add the _dynamic:block_ tag to your GSP page, specify HTML template and pass necessary parameters to the tag:
 
 ::
 
-    <g:form controller="dynamicElements" action="submitAction" style="margin: 100px;">
+    <g:form controller="dynamicBlocks" action="submitAction" style="margin: 100px;">
         <p>Enter a full name and birthday:</p>
-        <dynamic_elements:add itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
-                              onComplete="makeDatePicker" limitReachedMsg="Limit is exceeded!">
+        <dynamic:block itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
+                       onComplete="makeDatePicker" limitReachedMsg="Limit is exceeded!">
             <g:textField name="firstName"/>
             <g:textField name="lastName"/>
             <g:textField name="birthday" id="birthday"/>
             <input id="addFullName" type="button" value="Add another name"/>
-        </dynamic_elements:add>
+        </dynamic:block>
     </g:form>
 
 Requirements

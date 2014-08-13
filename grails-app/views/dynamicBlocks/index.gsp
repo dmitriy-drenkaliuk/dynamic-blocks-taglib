@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta name="layout" content="main"/>
-	<title>'dynamic_elements' TagLib examples</title>
+	<title>'dynamic:block' tag examples</title>
 	<g:javascript>
 		function check(elem) {
 			$(elem).prev().val($(elem).attr('checked') ? 'on' : '');
@@ -16,34 +16,34 @@
 
 <body>
 
-<g:form controller="dynamicElements" action="submitAction" style="margin: 100px;">
-	<p>'dynamic_elements' TagLib with callback function:</p>
+<g:form controller="dynamicBlocks" action="submitAction" style="margin: 100px;">
+	<p>The 'dynamic:block' tag with callback function:</p>
 	<table cellpadding="0" cellspacing="0" id="usersHeadTable">
 		<tr><td>First name</td><td>Last name</td><td>Birthday</td></tr>
 	</table>
-	<dynamic_elements:add itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
+	<dynamic:block itemId="fullName" min="2" max="5" addBtnId="addFullName" removeBtnLabel="Delete"
 						  onComplete="initDatePicker" limitReachedMsg="Limit is exceeded!" template="/partials/elem"/>
 	<input id="addFullName" type="button" value="Add user"/>
 
 	<br/><br/>
 
-	<p>'dynamic_elements' TagLib with checkboxes:</p>
-	<dynamic_elements:add itemId="skills" min="1" max="5">
+	<p>The 'dynamic:block' tag with checkboxes:</p>
+	<dynamic:block itemId="skills" min="1" max="5">
 		<g:textField name="skill" placeholder="Skill name"/>
 		<g:checkBox name="isVerified" onchange="check(this);"/>
-	</dynamic_elements:add>
+	</dynamic:block>
 
 	<br/><br/>
 
-	<p>'dynamic_elements' TagLib with radio inputs:</p>
-	<dynamic_elements:add itemId="radioInputsTest" min="4">
+	<p>The 'dynamic:block' tag with radio inputs:</p>
+	<dynamic:block itemId="radioInputsTest" min="4">
 		<span>
 			<label>Option1</label>
 			<g:radio value="1" name="radioGroup"/>
 			<label>Option2</label>
 			<g:radio value="2" name="radioGroup"/>
 		</span>
-	</dynamic_elements:add>
+	</dynamic:block>
 
 	<br/><br/>
 

@@ -21,9 +21,9 @@
 		// get the "Add" button
 		var addButton = ${addBtnId ? "\$('#$addBtnId')" : "\$('#add_$id')"};
 
-		// import the dynamicElements.js file if it was not imported yet
+		// import the dynamicBlocks.js file if it has not been imported yet
 		if (!window['addItem']) {
-			$.getScript("${resource(dir: 'js', file: 'dynamicElements.js')}", function() {
+			$.getScript("${resource(dir: 'js', file: 'dynamicBlocks.js')}", function() {
 				initializeTag(addButton, '${id}', '${elem}', ${min}, ${max}, '${onComplete}', '${limitReachedMsg}', '${removeBtnLabel}');
 			});
 		} else {
