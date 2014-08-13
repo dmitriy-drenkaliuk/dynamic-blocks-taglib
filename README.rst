@@ -7,7 +7,7 @@ Project demonstrates how to use the Grails tag library described in `this articl
 Overview
 ========
 
-This is a project sample that demonstrates Grails tag library for dynamic placing of identical HTML blocks to a GSP. There are a test controller and a GSP that contains several examples of the tag library usages. With this tag library, you are able to:
+This is a project sample that demonstrates Grails tag library for dynamic placing of identical HTML blocks to a GSP. The tag library can be used when you want to give user an option to dynamically add extra inputs for additional information. With this tag library, you are able to:
 
 * dynamically add and remove single-type blocks of HTML elements to the page;
 
@@ -19,7 +19,7 @@ The tag library is described in detail in this article: http://sysgears.com/arti
 Tags description
 ================
 
-The tag library provides a single 'block' tag and can be used when you want to give user an option to dynamically add extra inputs for additional information. You can pass the following parameters to the tag in order to set up its behavior:
+The tag library provides a single 'block' tag and you can pass the following parameters to it in order to set up its behavior:
 
 * itemId - the prefix for the item id (every item id consists of the prefix and the index number)
 
@@ -39,10 +39,10 @@ How to use the tag library in a Grails project
 
 1) Copy the following files to the specified directories:
 
- * DynamicElementsTagLib.groovy - to the *<project_root>/grails-app/<package_name>/taglib* directory
+   * DynamicElementsTagLib.groovy - to the *<project_root>/grails-app/<package_name>/taglib* directory
 
- * _add.gsp - to the *<project_root>/grails-app/views/partials/dynamicBlocks* directory
- * dynamicBlocks.js - to the *<project_root>/web-app/js* directory
+   * _add.gsp - to the *<project_root>/grails-app/views/partials/dynamicBlocks* directory
+   * dynamicBlocks.js - to the *<project_root>/web-app/js* directory
 
 2) Add JQuery library to your GSP page or layout:
 
