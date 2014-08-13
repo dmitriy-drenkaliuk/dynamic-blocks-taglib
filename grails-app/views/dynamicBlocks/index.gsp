@@ -39,7 +39,7 @@
 	<dynamic:block itemId="radioInputsTest" min="4">
 		<span>
 			<label>Option1</label>
-			<g:radio value="1" name="radioGroup"/>
+			<g:radio value="1" name="radioGroup" checked="checked"/>
 			<label>Option2</label>
 			<g:radio value="2" name="radioGroup"/>
 		</span>

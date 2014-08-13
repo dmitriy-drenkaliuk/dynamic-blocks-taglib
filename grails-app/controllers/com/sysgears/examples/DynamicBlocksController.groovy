@@ -13,6 +13,14 @@ class DynamicBlocksController {
 	 */
 	def submitAction() {
 		println(params as String)
+		println 'Radio group params:' +
+				params.findAll {
+					it.key.startsWith('radioGroup')
+				}.sort {
+					it.key
+				}.collect {
+					it.value
+				}
 
 		redirect(action: 'index')
 	}
