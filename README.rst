@@ -39,7 +39,7 @@ How to use the tag library in a Grails project
 
 1) Copy the following files to the specified directories:
 
-   * DynamicElementsTagLib.groovy - to the *<project_root>/grails-app/<package_name>/taglib* directory
+   * DynamicBlocksTagLib.groovy - to the *<project_root>/grails-app/<package_name>/taglib* directory
 
    * _add.gsp - to the *<project_root>/grails-app/views/partials/dynamicBlocks* directory
    * dynamicBlocks.js - to the *<project_root>/web-app/js* directory
@@ -50,7 +50,7 @@ How to use the tag library in a Grails project
 
     <g:javascript src="jquery/jquery-1.8.2.min.js"/>
 
-3) Add the _dynamic:block_ tag to your GSP page, specify HTML template and pass necessary parameters to the tag:
+3) Add the *dynamic:block* tag to your GSP page, specify HTML template and pass necessary parameters to the tag:
 
 ::
 
