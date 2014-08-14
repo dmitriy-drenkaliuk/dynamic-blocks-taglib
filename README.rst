@@ -9,7 +9,7 @@ Overview
 
 This is a project sample that demonstrates Grails tag library for dynamic placing of identical HTML blocks to a GSP. There are a test controller and a GSP that contains several examples of the tag library usages. With this tag library, you are able to:
 
-* dynamically add and remove single-type blocks of HTML elements to the page;
+* dynamically add and remove single-type blocks of HTML elements;
 
 * set the minimum and maximum number of blocks;
 * use separate GSP template as a HTML block.
