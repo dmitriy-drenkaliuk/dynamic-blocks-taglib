@@ -1,5 +1,5 @@
-Project demonstrates how to use the Grails tag library described in `this article <http://sysgears.com/articles/dynamically-add-and-remove-html-blocks-with-grails-tag-library-and-jquery/>`_
-#############################################################################################################################################################################################
+Project demonstrating how to use the Grails tag library described in `this article <http://sysgears.com/articles/dynamically-add-and-remove-html-blocks-with-grails-tag-library-and-jquery/>`_
+##############################################################################################################################################################################################
 
 .. contents::
    :local:
