@@ -9,7 +9,7 @@ Overview
 
 This is a project sample that demonstrates Grails tag library for dynamic placing of identical HTML blocks to a GSP. The tag library can be used when you want to give user an option to dynamically add extra inputs for additional information. With this tag library, you are able to:
 
-* dynamically add and remove single-type blocks of HTML elements to the page;
+* dynamically add and remove single-type blocks of HTML elements;
 
 * set the minimum and maximum number of blocks;
 * use separate GSP template as a HTML block.
