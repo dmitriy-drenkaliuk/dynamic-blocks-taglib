@@ -4,10 +4,6 @@
 	<meta name="layout" content="main"/>
 	<title>'dynamic:block' tag examples</title>
 	<g:javascript>
-		function check(elem) {
-			$(elem).prev().val($(elem).attr('checked') ? 'on' : '');
-		}
-
 		function initDatePicker(num) {
 			$('#birthday' + num).datepicker();
 		}
@@ -30,7 +26,7 @@
 	<p>The 'dynamic:block' tag with checkboxes:</p>
 	<dynamic:block itemId="skills" min="1" max="5">
 		<g:textField name="skill" placeholder="Skill name"/>
-		<g:checkBox name="isVerified" onchange="check(this);"/>
+		<g:checkBox name="isVerified"/>
 	</dynamic:block>
 
 	<br/><br/>

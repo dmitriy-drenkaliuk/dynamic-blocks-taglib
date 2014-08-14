@@ -19,7 +19,7 @@ function addItem(id, elem, min, max, onComplete, limitMessage, removeBtnLabel) {
 		});
 		// changes IDs of all elements inside new item
 		indexItem($newElem, num);
-		indexRadioGroup($newElem, num);
+		indexCheckableInputs($newElem, num);
 		// appends new item to the parent element
 		$('#parent_' + id).append($newElem);
 		// enables "Remove" buttons if there are more than minimum number of elements on the page
@@ -62,8 +62,12 @@ function indexItem($elem, num) {
 /*
  * Changes names of radio inputs by adding the index number to it.
  */
-function indexRadioGroup($elem, num) {
+function indexCheckableInputs($elem, num) {
 	$elem.find('input[type=radio]').each(function() {
 		$(this).attr('name', $(this).attr('name') + num);
+	});
+	$elem.find('input[type=checkbox]').each(function() {
+		$(this).prev().attr('name', $(this).prev().attr('name') + '.' + num);
+		$(this).attr('name', $(this).attr('name') + '.' + num);
 	});
 }
